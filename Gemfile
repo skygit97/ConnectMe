@@ -54,11 +54,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # Error testing
+  # pry > irb
   gem 'pry-rails'
+  # These two give you a great error handling page.
+  # But make sure to never use them in production!
   gem 'better_errors'
   gem 'binding_of_caller'
-  # Visualize schema on Active Record
+  # Run 'bundle exec annotate' in Terminal to add helpful comments to models.
   gem 'annotate'
 end
 
