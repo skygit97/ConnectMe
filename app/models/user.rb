@@ -39,8 +39,13 @@ class User < ApplicationRecord
 
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64
-    self.save!
-    self.session_token
+    save!
+    session_token
+  end
+
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
+    user&.is_password?(password) ? user : mil
   end
 
   private
