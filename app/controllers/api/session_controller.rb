@@ -16,7 +16,11 @@ class Api::SessionController < ApplicationController
 
   #signout
   def destroy
-    logout!
-    render json: {}
+    if logged_in?
+      logout!
+      render json: {}
+    else
+      render json: ['Cannot find session'], status: :not_found
+    end
   end
 end

@@ -17,7 +17,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   validates :first_name, :last_name, :email, :password_digest, :birth_date, :gender, :session_token, presence: true
-  validates :email, exuniqueness: { case_sensitive: false },
+  validates :email, uniqueness: { case_sensitive: false },
                     format: { with: URI::MailTo::EMAIL_REGEXP },
                     confirmation: { case_sensitive: false }
   validates :session_token, uniqueness: true
@@ -46,6 +46,10 @@ class User < ApplicationRecord
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user&.is_password?(password) ? user : nil
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
   private
