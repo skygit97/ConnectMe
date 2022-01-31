@@ -60,7 +60,7 @@ group :development do
   # But make sure to never use them in production!
   gem 'better_errors'
   gem 'binding_of_caller'
-  # Run 'bundle exec annotate' in Terminal to add helpful comments to models.
+  # Run 'bundle exec annotate --models' in Terminal to add helpful comments to models.
   gem 'annotate'
 end
 
