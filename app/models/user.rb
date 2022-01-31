@@ -17,7 +17,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   validates :first_name, :last_name, :email, :password_digest, :birth_date, :gender, :session_token, presence: true
-  validates :email, uniqueness: { case_sensitive: false },
+  validates :email, exuniqueness: { case_sensitive: false },
                     format: { with: URI::MailTo::EMAIL_REGEXP },
                     confirmation: { case_sensitive: false }
   validates :session_token, uniqueness: true
