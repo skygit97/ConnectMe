@@ -67,6 +67,8 @@ group :development do
   gem 'binding_of_caller'
   # Run 'bundle exec annotate --models' in Terminal to add helpful comments to models.
   gem 'annotate'
+  # Live reload
+  gem 'guard'
 end
 
 group :test do
